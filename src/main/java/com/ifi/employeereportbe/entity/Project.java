@@ -1,21 +1,17 @@
 package com.ifi.employeereportbe.entity;
 
 import lombok.Data;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.*;
-
-@Entity
-@Table(name = "project")
+@Document(collection = "projects")
 @Data
 public class Project {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "name")
     private String name;
 
-    @Column(name = "progress")
     private byte progress;
 }

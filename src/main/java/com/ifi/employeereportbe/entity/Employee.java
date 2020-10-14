@@ -1,23 +1,19 @@
 package com.ifi.employeereportbe.entity;
 
 import lombok.Data;
-
-import javax.persistence.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.Date;
 
-@Entity
-@Table(name = "employee")
+@Document(collection = "employees")
 @Data
 public class Employee {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private String id;
 
-    @Column(name = "name")
     private String name;
 
-    @Column(name = "DoB")
     private Date birthDay;
 
 }
