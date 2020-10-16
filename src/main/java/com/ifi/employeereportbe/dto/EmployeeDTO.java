@@ -9,6 +9,6 @@ import java.util.Date;
 @Setter
 public class EmployeeDTO {
 
+    private String id;
     private String name;
-    private Date birthDay;
 }
