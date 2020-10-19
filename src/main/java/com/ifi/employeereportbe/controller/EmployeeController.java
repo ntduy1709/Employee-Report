@@ -3,9 +3,7 @@ package com.ifi.employeereportbe.controller;
 import com.ifi.employeereportbe.dto.EmployeeDTO;
 import com.ifi.employeereportbe.service.imp.EmployeeServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,10 +15,28 @@ public class EmployeeController {
     private EmployeeServiceImp employeeServiceImp;
 
 
-    @GetMapping(value = "/all")
-    public List<EmployeeDTO> getEmployees(){
+    @GetMapping
+    public List<EmployeeDTO> getAllEmployees(){
         return employeeServiceImp.getAllEmployees();
     }
 
+    @GetMapping(value = "/{employeeID}")
+    public EmployeeDTO getEmployeesDTO(@PathVariable(value = "employeeID") String id){
+        return employeeServiceImp.getEmployeeDTO(id);
+    }
 
+    @PostMapping
+    public EmployeeDTO postEmployeeDTO(@RequestBody EmployeeDTO employeeDTO){
+        return employeeServiceImp.postEmployeeDTO(employeeDTO);
+    }
+
+    @PutMapping
+    public EmployeeDTO updateEmployeeDTO(@RequestBody EmployeeDTO employeeDTO){
+        return employeeServiceImp.updateEmployeeDTO(employeeDTO);
+    }
+
+    @DeleteMapping
+    public void deleteEmployeeDTO(@RequestBody EmployeeDTO employeeDTO){
+        employeeServiceImp.deleteEmployeeDTO(employeeDTO);
+    }
 }
