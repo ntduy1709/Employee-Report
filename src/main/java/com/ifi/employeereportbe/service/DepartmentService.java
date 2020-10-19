@@ -11,7 +11,7 @@ public interface DepartmentService {
     List<DepartmentDTO> getAllDepartments();
     DepartmentDTO getDepartmentDTO(String id);
     DepartmentDTO updateDepartmentDTO(DepartmentDTO departmentDTO);
-    DepartmentDTO postDepartmentDTO(DepartmentDTO departmentDTO);
+    DepartmentDTO createDepartmentDTO(DepartmentDTO departmentDTO);
     void deleteDepartmentDTO(DepartmentDTO departmentDTO);
 
 }
