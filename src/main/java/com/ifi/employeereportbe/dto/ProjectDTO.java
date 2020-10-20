@@ -7,7 +7,7 @@ import lombok.Setter;
 @Setter
 public class ProjectDTO {
 
-    private int id;
+    private String id;
     private String name;
     private byte progress;
 }

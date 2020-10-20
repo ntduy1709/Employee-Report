@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/departments")
+@RequestMapping("/departments")
 public class DepartmentController {
 
     @Autowired
@@ -22,21 +22,28 @@ public class DepartmentController {
     private SequenceGeneratorService sequenceGeneratorService;
 
     @GetMapping
-    public List<DepartmentDTO> getDepartments(){
+    public List<DepartmentDTO> getAllDepartments(){
         return departmentServiceImp.getAllDepartments();
     }
 
-    @PostMapping
-    public DepartmentDTO createDepartment(@RequestBody DepartmentDTO department) {
-        department.setId(sequenceGeneratorService.generateSequence(Department.SEQUENCE_NAME));
-        return departmentServiceImp.createDepartmentDTO(department);
+    @GetMapping(value = "/{departmentID}")
+    public DepartmentDTO getDepartmentDTO(@PathVariable String id){
+        return departmentServiceImp.getDepartmentDTO(id);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Department> getDepartmentById(@PathVariable(value = "id") String departmentId,
-                                                           @RequestBody Department department){
-        DepartmentDTO departmentDTO;
-        return null;
+    @PostMapping
+    public DepartmentDTO createDepartment(@RequestBody DepartmentDTO departmentDTO) {
+        return departmentServiceImp.createDepartmentDTO(departmentDTO);
+    }
+
+    @PutMapping
+    public DepartmentDTO updateDepartmentDTO(@RequestBody DepartmentDTO departmentDTO){
+        return departmentServiceImp.updateDepartmentDTO(departmentDTO);
+    }
+
+    @DeleteMapping
+    public void deleteDepartmentDTO(DepartmentDTO departmentDTO){
+        departmentServiceImp.deleteDepartmentDTO(departmentDTO);
     }
 
 }
