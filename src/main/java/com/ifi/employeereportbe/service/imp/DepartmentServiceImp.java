@@ -56,7 +56,7 @@ public class DepartmentServiceImp implements DepartmentService {
     @Override
     public DepartmentDTO createDepartmentDTO(DepartmentDTO departmentDTO) {
         Department department = modelMapper.map(departmentDTO, Department.class);
-        department.setId(sequenceGeneratorService.generateSequence(Department.SEQUENCE_NAME));
+       // department.setId(sequenceGeneratorService.generateSequence(Department.SEQUENCE_NAME));
         Department departmentSaved = departmentRepository.save(department);
         return modelMapper.map(departmentSaved, DepartmentDTO.class);
     }

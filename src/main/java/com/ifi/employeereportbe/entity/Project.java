@@ -3,19 +3,27 @@ package com.ifi.employeereportbe.entity;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.util.List;
 
 @Document(collection = "projects")
 @Data
 public class Project {
 
-    @Transient
-    public static final String SEQUENCE_NAME = "users_sequence";
+//    @Transient
+//    public static final String SEQUENCE_NAME = "users_sequence";
 
     @Id
-    private String id;
+    private String projectId;
 
-    private String name;
+    @Indexed
+    private String projectName;
 
-    private byte progress;
+    @Indexed
+    private List<Version> versionList;
+
+    @Indexed
+    private List<Issue> issueList;
 }

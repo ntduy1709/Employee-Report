@@ -54,7 +54,7 @@ public class EmployeeServiceImp implements EmployeeService {
     @Override
     public EmployeeDTO postEmployeeDTO(EmployeeDTO employeeDTO) {
         Employee employee = modelMapper.map(employeeDTO, Employee.class);
-        employee.setId(sequenceGeneratorService.generateSequence(Employee.SEQUENCE_NAME));
+       // employee.setId(sequenceGeneratorService.generateSequence(Employee.SEQUENCE_NAME));
         Employee employeeSaved = employeeRepository.save(employee);
         return modelMapper.map(employeeSaved,EmployeeDTO.class);
     }

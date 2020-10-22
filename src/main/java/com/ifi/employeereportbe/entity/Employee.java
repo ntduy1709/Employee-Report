@@ -12,14 +12,14 @@ import java.util.Date;
 @Data
 public class Employee {
 
-    @Transient
-    public static final String SEQUENCE_NAME = "users_sequence";
+//    @Transient
+//    public static final String SEQUENCE_NAME = "users_sequence";
 
     @Id
-    private String id;
+    private String employeeId;
 
     @Indexed
-    private String name;
+    private String employeeName;
 
 
 }

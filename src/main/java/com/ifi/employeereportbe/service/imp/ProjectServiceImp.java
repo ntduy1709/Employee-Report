@@ -54,7 +54,7 @@ public class ProjectServiceImp implements ProjectService {
     @Override
     public ProjectDTO postEmployeeDTO(ProjectDTO projectDTO) {
         Project project = mapper.map(projectDTO, Project.class);
-        project.setId(sequenceGeneratorService.generateSequence(Project.SEQUENCE_NAME));
+     //   project.setId(sequenceGeneratorService.generateSequence(Project.SEQUENCE_NAME));
         Project projectSaved = projectRepository.save(project);
         return mapper.map(projectSaved,ProjectDTO.class);
     }
