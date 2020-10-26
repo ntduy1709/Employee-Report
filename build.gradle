@@ -35,6 +35,13 @@ dependencies {
     compile group: 'org.mongodb', name: 'mongo-java-driver', version: '3.12.7'
     // https://mvnrepository.com/artifact/com.taskadapter/redmine-java-api
     compile group: 'com.taskadapter', name: 'redmine-java-api', version: '4.0.0.rc2'
+    // https://mvnrepository.com/artifact/commons-codec/commons-codec
+    compile group: 'commons-codec', name: 'commons-codec', version: '1.10'
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.11.2'
+// https://mvnrepository.com/artifact/com.google.code.gson/gson
+    compile group: 'com.google.code.gson', name: 'gson', version: '2.6'
+
 
 
 

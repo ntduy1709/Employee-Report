@@ -20,4 +20,8 @@ public class Issue {
 
     @Indexed
     private String tracker;
+
+    @Indexed
+    private String assigned_to;
+
 }

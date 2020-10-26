@@ -44,7 +44,7 @@ public class ProjectServiceImp implements ProjectService {
 
     @Override
     public ProjectDTO updateEmployeeDTO(ProjectDTO projectDTO) {
-        String id = projectDTO.getId();
+        String id = projectDTO.getProjectId();
         Project project = projectRepository.findById(id).orElse(null);
         mapper.map(projectDTO, project);
         Project projectSaved = projectRepository.save(project);
@@ -61,7 +61,7 @@ public class ProjectServiceImp implements ProjectService {
 
     @Override
     public void deleteEmployeeDTO(ProjectDTO projectDTO) {
-        String id = projectDTO.getId();
+        String id = projectDTO.getProjectId();
         Project project = projectRepository.findById(id).orElse(null);
         projectRepository.delete(project);
     }

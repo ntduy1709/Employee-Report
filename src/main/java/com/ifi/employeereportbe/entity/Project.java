@@ -2,7 +2,6 @@ package com.ifi.employeereportbe.entity;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -26,4 +25,9 @@ public class Project {
 
     @Indexed
     private List<Issue> issueList;
+
+    public Project(String _projectId, String _projectName) {
+        this.projectId = _projectId;
+        this.projectName = _projectName;
+    }
 }
