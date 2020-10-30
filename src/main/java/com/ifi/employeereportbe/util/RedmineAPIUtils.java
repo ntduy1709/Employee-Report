@@ -10,20 +10,20 @@ import com.ifi.employeereportbe.entity.Version;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RedminAPIUtils {
+public class RedmineAPIUtils {
 
-    private static final String baseUrl = "http://apis.ifisolution.local:8080/";
-    private static final String username = "*";
-    private static final String password = "*";
+    private static final String baseUrl = "http://localhost:10083/";
+    private static final String username = "admin";
+    private static final String password = "abc12345";
     private static RESTInvoker restInvoker;
 
     private static List<Project> projectList = new ArrayList<>();
 
     static {
         restInvoker = new RESTInvoker(baseUrl,username,password);
-        projectList.add(new Project("100", "abc"));
-        projectList.add(new Project("101", "def"));
-        projectList.add(new Project("102", "xyz"));
+        projectList.add(new Project("0", "test-employee"));
+        projectList.add(new Project("1", "test-employee"));
+        projectList.add(new Project("2", "test-employee"));
     }
 
     public static boolean createIssue() throws Exception{
@@ -51,8 +51,7 @@ public class RedminAPIUtils {
         List<Issue> issueList = new ArrayList<>();
 
         for (Version version : versionList) {
-            String path = "issue.json?project_id=" + version.getProjectId() + "&limit=100&fixed_version_id="
-                    + version.getVersionId() + "&status_id=*";
+            String path = "issue.json?project_id=" + version.getProjectId();
             String js = getJSONFromRedmine(path);
             JsonObject jsonObject = new JsonParser().parse(js).getAsJsonObject();
             JsonArray issueArray = (JsonArray) jsonObject.get("issues");
