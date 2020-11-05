@@ -12,18 +12,18 @@ import java.util.List;
 
 public class RedmineAPIUtils {
 
-    private static final String baseUrl = "http://localhost:10083/";
-    private static final String username = "admin";
-    private static final String password = "abc12345";
+    private static final String baseUrl = "http://localhost:80/";
+    private static final String username = "user";
+    private static final String password = "bitnami1";
     private static RESTInvoker restInvoker;
 
     private static List<Project> projectList = new ArrayList<>();
 
     static {
         restInvoker = new RESTInvoker(baseUrl,username,password);
-        projectList.add(new Project("0", "test-employee"));
         projectList.add(new Project("1", "test-employee"));
         projectList.add(new Project("2", "test-employee"));
+        projectList.add(new Project("3", "test-employee"));
     }
 
     public static boolean createIssue() throws Exception{

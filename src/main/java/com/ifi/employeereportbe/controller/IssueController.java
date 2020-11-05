@@ -24,9 +24,9 @@ public class IssueController {
         return issueServiceImp.getRedmineIssue(sprint);
     }
 
-    @GetMapping(value = "/getAllIssues", produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+    @GetMapping(value = "/getAllIssues")
     @ResponseBody
-    public Map<String, Map> getRedmineIssue1(@RequestParam int sprint){
+    public Map<String, Map> getRedmineIssue1(@RequestParam(value = "sprint") int sprint){
         return issueServiceImp.getRedmineIssue1(sprint);
     }
 }
